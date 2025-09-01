@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SAT English Made Easy</title>
 
+  <!-- Modern Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -16,42 +17,18 @@
       color: #333;
     }
 
+    h1, h2 {
+      color: #2c3e50;
+    }
+
+    /* Banner */
     h1 {
       background: linear-gradient(to right, #4a90e2, #6fb1fc);
       color: white;
       padding: 20px;
       border-radius: 8px;
       text-align: center;
-      margin-bottom: 10px;
-    }
-
-    /* Info Section */
-    #info-bar {
-      max-width: 900px;
-      margin: 0 auto 30px auto;
-      background: #ffffff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    #word-of-hour, #quote-of-day {
-      background-color: #f5faff;
-      padding: 15px;
-      border-left: 6px solid #4a90e2;
-      border-radius: 8px;
-    }
-
-    #quote-of-day {
-      background-color: #fff7e6;
-      border-left-color: #f4a300;
-    }
-
-    #info-bar h3 {
-      margin: 0 0 5px;
+      margin-bottom: 30px;
     }
 
     .tab-buttons {
@@ -112,6 +89,7 @@
       background-color: #3a78c2;
     }
 
+    /* Hero + Modules styling */
     .hero {
       background: #4A90E2;
       color: white;
@@ -139,6 +117,7 @@
       text-align: center;
     }
 
+    /* About Section */
     #about img {
       width: 200px;
       border-radius: 10px;
@@ -161,23 +140,33 @@
       margin-top: 0;
       padding-left: 20px;
     }
+
+    /* Daily section styles */
+    #daily-section {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    #daily-section h3 {
+      color: #4a90e2;
+      margin-bottom: 8px;
+    }
+
+    #daily-section p {
+      font-size: 16px;
+      line-height: 1.4;
+      color: #2c3e50;
+      margin: 0;
+    }
   </style>
 </head>
 <body>
 
   <h1>SAT English Made Easy</h1>
-
-  <!-- 🔹 Word + Quote Info -->
-  <div id="info-bar">
-    <div id="word-of-hour">
-      <h3>📘 Word of the Hour</h3>
-      <p id="wordText">Loading...</p>
-    </div>
-    <div id="quote-of-day">
-      <h3>🌟 Quote of the Day</h3>
-      <p id="quoteText">Loading...</p>
-    </div>
-  </div>
 
   <!-- 🔹 Tab Buttons -->
   <div class="tab-buttons">
@@ -193,6 +182,18 @@
       <button onclick="document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });">Get Started</button>
     </section>
 
+    <!-- Daily Quote & Word Section -->
+    <section id="daily-section">
+      <div id="quote-of-the-day" style="margin-bottom: 20px;">
+        <h3>Motivational Quote of the Day</h3>
+        <p id="quoteText">Loading...</p>
+      </div>
+      <div id="word-of-the-hour">
+        <h3>Word of the Hour</h3>
+        <p id="wordText">Loading...</p>
+      </div>
+    </section>
+
     <section id="modules" class="modules">
       <div class="module"><h3>Reading</h3><p>Practice reading passages with comprehension questions.</p></div>
       <div class="module"><h3>Writing</h3><p>Analyze arguments, improve clarity and coherence.</p></div>
@@ -206,12 +207,17 @@
       <form action="https://formspree.io/f/mzzagnqg" method="POST">
         <label>Full Name:</label>
         <input type="text" name="name" required />
+
         <label>Email:</label>
         <input type="email" name="email" required />
+
         <label>Grade / SAT Target Score:</label>
         <input type="text" name="grade" />
+
         <label>Message:</label>
         <textarea name="message" rows="4"></textarea>
+
+        <!-- Optional CAPTCHA already enabled via Formspree dashboard -->
         <button type="submit">Submit</button>
       </form>
     </section>
@@ -220,10 +226,15 @@
   <!-- 🔹 Tab Content: About -->
   <div id="about" class="tab-content">
     <h2>About Me</h2>
+
     <div class="about-wrapper">
+      <!-- 👤 Image -->
       <img src="picturepdeskto[.jpg" alt="Hera" />
+
+      <!-- 📝 Text -->
       <div>
         <p>Hello! I'm <strong>Hera</strong>, a passionate and dedicated <strong>SAT English tutor</strong> with good amount of experience helping students excel in the Reading, Writing, and Language sections of the SAT.</p>
+
         <p>My teaching approach is student-focused and results-driven. I specialize in:</p>
         <ul>
           <li>Decoding SAT question patterns</li>
@@ -232,54 +243,77 @@
           <li>Building confidence through strategic practice</li>
           <li>Teaching time-saving strategies for higher efficiency</li>
         </ul>
+
         <p>Over the past decade, I've worked with students—many of whom went on to achieve <strong>top percentile scores</strong> and earn admission to prestigious universities in the U.S. and beyond.</p>
+
         <p>If you're ready to unlock your full potential and take your SAT English skills to the next level, I’d love to help you on your journey. <strong>Let’s get started!</strong></p>
       </div>
     </div>
   </div>
 
-  <!-- 🔹 JavaScript -->
+  <!-- 🔹 JavaScript: Tab Switching + Quote & Word Logic -->
   <script>
+    // Tab switching
     function showTab(tabId) {
       const tabs = document.querySelectorAll('.tab-content');
       tabs.forEach(tab => tab.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
     }
 
-    const words = [
-      "elucidate – to make something clear",
-      "reticent – not revealing one's thoughts easily",
-      "sagacious – wise or shrewd",
-      "ubiquitous – present everywhere",
-      "deleterious – harmful or damaging",
-      "circumspect – careful, cautious",
-      "cogent – clear, logical, and convincing",
-      "magnanimous – very generous or forgiving"
+    // Static list of motivational quotes
+    const quotes = [
+      "Success is not final, failure is not fatal: It is the courage to continue that counts. – Winston Churchill",
+      "The future belongs to those who believe in the beauty of their dreams. – Eleanor Roosevelt",
+      "Don't watch the clock; do what it does. Keep going. – Sam Levenson",
+      "Believe you can and you're halfway there. – Theodore Roosevelt",
+      "Hardships often prepare ordinary people for an extraordinary destiny. – C.S. Lewis",
+      "Your limitation—it’s only your imagination.",
+      "Push yourself, because no one else is going to do it for you.",
+      "Great things never come from comfort zones.",
+      "Dream it. Wish it. Do it.",
+      "Success doesn’t just find you. You have to go out and get it."
     ];
 
-    function getWordOfHour() {
-      const hour = new Date().getHours();
-      return words[hour % words.length];
+    // Static list of SAT vocabulary words with definitions
+    const words = [
+      { word: "Abate", definition: "To reduce in amount, degree, or severity" },
+      { word: "Benevolent", definition: "Well meaning and kindly" },
+      { word: "Capricious", definition: "Given to sudden changes of mood or behavior" },
+      { word: "Disparate", definition: "Essentially different in kind" },
+      { word: "Enervate", definition: "To weaken or drain energy from" },
+      { word: "Fervent", definition: "Having or showing great warmth or intensity of spirit" },
+      { word: "Garrulous", definition: "Excessively talkative" },
+      { word: "Harangue", definition: "A lengthy and aggressive speech" },
+      { word: "Impetuous", definition: "Acting quickly without thought or care" },
+      { word: "Juxtapose", definition: "To place side by side for comparison" }
+    ];
+
+    // Show quote of the day - changes daily based on date
+    function showQuoteOfTheDay() {
+      const today = new Date();
+      const dayOfYear = Math.floor(
+        (today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24
+      );
+      const quoteIndex = dayOfYear % quotes.length;
+      document.getElementById('quoteText').textContent = quotes[quoteIndex];
     }
 
-  async function fetchQuoteOfDay() {
-    try {
-      const response = await fetch("https://zenquotes.io/api/random");
-      const json = await response.json();
-      const quoteObj = json[0]; // Access first element of the array
-      return `"${quoteObj.q}" — ${quoteObj.a}`;
-    } catch (error) {
-      console.error("Error fetching quote:", error);
-      return "Keep learning and never stop growing.";
+    // Show word of the hour - changes every hour
+    function showWordOfTheHour() {
+      const now = new Date();
+      const hoursSinceEpoch = Math.floor(now.getTime() / (1000 * 60 * 60));
+      const wordIndex = hoursSinceEpoch % words.length;
+      const wordObj = words[wordIndex];
+      document.getElementById('wordText').textContent = `${wordObj.word}: ${wordObj.definition}`;
     }
-  }
 
-    document.addEventListener("DOMContentLoaded", async () => {
-      document.getElementById("wordText").textContent = getWordOfHour();
-      document.getElementById("quoteText").textContent = await fetchQuoteOfDay();
-    });
+    // Initial calls
+    showQuoteOfTheDay();
+    showWordOfTheHour();
+
+    // Update word of the hour every minute in case user stays on page for a long time
+    setInterval(showWordOfTheHour, 60 * 1000);
   </script>
 
 </body>
 </html>
-
