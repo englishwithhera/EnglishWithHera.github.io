@@ -264,7 +264,7 @@
 
   async function fetchQuoteOfDay() {
     try {
-      const response = await fetch("https://zenquotes.io/api/today");
+      const response = await fetch("https://zenquotes.io/api/random");
       const json = await response.json();
       const quoteObj = json[0]; // Access first element of the array
       return `"${quoteObj.q}" — ${quoteObj.a}`;
@@ -282,3 +282,4 @@
 
 </body>
 </html>
+
