@@ -165,6 +165,7 @@
 
   <div class="tab-buttons">
     <button onclick="showTab('home')">SAT Preparation</button>
+    <button onclick="showTab('spoken')">Spoken English</button>
     <button onclick="showTab('kids')">Kid's Zone</button>
     <button onclick="showTab('about')">About Me</button>    
   </div>
@@ -222,23 +223,21 @@
     <div class="about-wrapper">
       <img src="picturepdeskto[.jpg" alt="Hera" />
       <div>
-<p>Hello! I'm <strong>Hera</strong>, a passionate and dedicated <strong>English language trainer</strong>.</p>
+        <p>Hello! I'm <strong>Hera</strong>, a passionate and dedicated <strong>English language trainer</strong>.</p>
 
-<p>Unlock your English potential with a <strong>CELTA/CELTYL</strong> certified trainer.</p>
+        <p>Unlock your English potential with a <strong>CELTA/CELTYL</strong> certified trainer.</p>
 
-<p>
-  For over 10 years, I've had the privilege of helping both children and adults master the English language. As a Cambridge CELTA and CELTYL certified trainer based in New York, I bring a level of expertise and dedication to every lesson that goes beyond the textbook.
-</p>
+        <p>
+          For over 10 years, I've had the privilege of helping both children and adults master the English language. As a Cambridge CELTA and CELTYL certified trainer based in New York, I bring a level of expertise and dedication to every lesson that goes beyond the textbook.
+        </p>
 
-<p>
-  My teaching philosophy is simple: effective language learning should be engaging, practical, and tailored to your goals. Whether you're a professional looking to communicate with greater confidence or a parent seeking a fun, supportive environment for your child to learn, I provide a clear, proven path to fluency.
-</p>
+        <p>
+          My teaching philosophy is simple: effective language learning should be engaging, practical, and tailored to your goals. Whether you're a professional looking to communicate with greater confidence or a parent seeking a fun, supportive environment for your child to learn, I provide a clear, proven path to fluency.
+        </p>
 
-<p>
-  I believe in transforming the way you learn English — moving you from memorization to genuine communication. Let's work together to achieve your language goals!
-</p>
-
-
+        <p>
+          I believe in transforming the way you learn English — moving you from memorization to genuine communication. Let's work together to achieve your language goals!
+        </p>
       </div>
     </div>
   </div>
@@ -280,6 +279,48 @@
         <textarea name="message" rows="4"></textarea>
 
         <button type="submit">Enroll</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Spoken English Tab -->
+  <div id="spoken" class="tab-content">
+    <h2>Spoken English</h2>
+    <p>Improve your speaking skills with our interactive spoken English modules.</p>
+
+    <section id="spoken-modules" class="modules">
+      <div class="module">
+        <h3>Pronunciation Practice</h3>
+        <p>Learn correct pronunciation through audio exercises and tongue twisters.</p>
+      </div>
+      <div class="module">
+        <h3>Conversation Skills</h3>
+        <p>Engage in dialogues and role-plays to boost confidence in everyday conversations.</p>
+      </div>
+      <div class="module">
+        <h3>Public Speaking</h3>
+        <p>Master the art of speaking clearly and confidently in front of audiences.</p>
+      </div>
+    </section>
+
+    <section style="max-width: 600px; margin: 40px auto 0; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+      <h2>🎤 Join Our Spoken English Class</h2>
+      <p>Fill out the form below and start speaking fluently!</p>
+
+      <form action="https://formspree.io/f/yourformid" method="POST">
+        <label>Full Name:</label>
+        <input type="text" name="name" required />
+
+        <label>Email:</label>
+        <input type="email" name="email" required />
+
+        <label>Current Speaking Level:</label>
+        <input type="text" name="level" placeholder="Beginner, Intermediate, Advanced" />
+
+        <label>Message:</label>
+        <textarea name="message" rows="4"></textarea>
+
+        <button type="submit">Enroll Now</button>
       </form>
     </section>
   </div>
