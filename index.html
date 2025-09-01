@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SAT English Made Easy</title>
+  <title>English Made Easy</title>
 
-  <!-- Modern Google Font -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -21,7 +21,6 @@
       color: #2c3e50;
     }
 
-    /* Banner */
     h1 {
       background: linear-gradient(to right, #4a90e2, #6fb1fc);
       color: white;
@@ -89,7 +88,6 @@
       background-color: #3a78c2;
     }
 
-    /* Hero + Modules styling */
     .hero {
       background: #4A90E2;
       color: white;
@@ -117,7 +115,6 @@
       text-align: center;
     }
 
-    /* About Section */
     #about img {
       width: 200px;
       border-radius: 10px;
@@ -141,7 +138,6 @@
       padding-left: 20px;
     }
 
-    /* Daily section styles */
     #daily-section {
       max-width: 600px;
       margin: 0 auto 40px;
@@ -168,13 +164,13 @@
 
   <h1>SAT English Made Easy</h1>
 
-  <!-- 🔹 Tab Buttons -->
   <div class="tab-buttons">
     <button onclick="showTab('home')">Home</button>
     <button onclick="showTab('about')">About Me</button>
+    <button onclick="showTab('kids')">Kid's Zone</button>
   </div>
 
-  <!-- 🔹 Tab Content: Home -->
+  <!-- Home Tab -->
   <div id="home" class="tab-content active">
     <section class="hero">
       <h2>SAT English Preparation</h2>
@@ -182,7 +178,6 @@
       <button onclick="document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });">Get Started</button>
     </section>
 
-    <!-- Daily Quote & Word Section -->
     <section id="daily-section">
       <div id="quote-of-the-day" style="margin-bottom: 20px;">
         <h3>Quote of the Day</h3>
@@ -217,21 +212,18 @@
         <label>Message:</label>
         <textarea name="message" rows="4"></textarea>
 
-        <!-- Optional CAPTCHA already enabled via Formspree dashboard -->
         <button type="submit">Submit</button>
       </form>
     </section>
   </div>
 
-  <!-- 🔹 Tab Content: About -->
+  <!-- About Me Tab -->
   <div id="about" class="tab-content">
     <h2>About Me</h2>
 
     <div class="about-wrapper">
-      <!-- 👤 Image -->
       <img src="picturepdeskto[.jpg" alt="Hera" />
 
-      <!-- 📝 Text -->
       <div>
         <p>Hello! I'm <strong>Hera</strong>, a passionate and dedicated <strong>SAT English tutor</strong> with good amount of experience helping students excel in the Reading, Writing, and Language sections of the SAT.</p>
 
@@ -251,16 +243,30 @@
     </div>
   </div>
 
-  <!-- 🔹 JavaScript: Tab Switching + Quote & Word Logic -->
+  <!-- Kid's Zone Tab -->
+  <div id="kids" class="tab-content">
+    <h2>Kid's Zone</h2>
+    <p>Fun, foundational English learning for young minds!</p>
+
+    <section style="max-width: 800px; margin: 0 auto; padding: 20px; background: #ffffff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <h3>What We Teach?</h3>
+      <ul style="padding-left: 20px; line-height: 1.6;">
+        <li><strong>Phonics & Pronunciation:</strong> We build a rock-solid foundation for reading. Instead of rote memorization, we use lively songs and playful activities to make sounds and letters stick, setting your child up for reading success.</li>
+        <li><strong>Conversational Skills:</strong> We turn shy smiles into confident voices. Our lessons are filled with role-playing and fun conversations, helping your child find the courage to speak up and share their thoughts in English.</li>
+        <li><strong>Vocabulary Building:</strong> We don't just teach new words; we expand their world. Through captivating stories and imaginative games, we introduce new vocabulary in context, so your child remembers words because they're part of an exciting adventure.</li>
+        <li><strong>Grammar:</strong> We make grammar easy to understand. Through clear explanations and practical examples, your child will learn the foundational rules of the language, building the skills they need to speak and write correctly.</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- JavaScript -->
   <script>
-    // Tab switching
     function showTab(tabId) {
       const tabs = document.querySelectorAll('.tab-content');
       tabs.forEach(tab => tab.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
     }
 
-    // Static list of motivational quotes
     const quotes = [
       "Success is not final, failure is not fatal: It is the courage to continue that counts. – Winston Churchill",
       "The future belongs to those who believe in the beauty of their dreams. – Eleanor Roosevelt",
@@ -274,7 +280,6 @@
       "Success doesn’t just find you. You have to go out and get it."
     ];
 
-    // Static list of SAT vocabulary words with definitions
     const words = [
       { word: "Abate", definition: "To reduce in amount, degree, or severity" },
       { word: "Benevolent", definition: "Well meaning and kindly" },
@@ -288,17 +293,13 @@
       { word: "Juxtapose", definition: "To place side by side for comparison" }
     ];
 
-    // Show quote of the day - changes daily based on date
     function showQuoteOfTheDay() {
       const today = new Date();
-      const dayOfYear = Math.floor(
-        (today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24
-      );
+      const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000);
       const quoteIndex = dayOfYear % quotes.length;
       document.getElementById('quoteText').textContent = quotes[quoteIndex];
     }
 
-    // Show word of the hour - changes every hour
     function showWordOfTheHour() {
       const now = new Date();
       const hoursSinceEpoch = Math.floor(now.getTime() / (1000 * 60 * 60));
@@ -307,14 +308,10 @@
       document.getElementById('wordText').textContent = `${wordObj.word}: ${wordObj.definition}`;
     }
 
-    // Initial calls
     showQuoteOfTheDay();
     showWordOfTheHour();
-
-    // Update word of the hour every minute in case user stays on page for a long time
-    setInterval(showWordOfTheHour, 60 * 1000);
+    setInterval(showWordOfTheHour, 60000);
   </script>
 
 </body>
 </html>
-
