@@ -274,10 +274,10 @@
     }
   }
 
-  document.addEventListener("DOMContentLoaded", async () => {
-    const quoteTextEl = document.getElementById("quoteText");
-    quoteTextEl.textContent = await fetchQuoteOfDay();
-  });
+    document.addEventListener("DOMContentLoaded", async () => {
+      document.getElementById("wordText").textContent = getWordOfHour();
+      document.getElementById("quoteText").textContent = await fetchQuoteOfDay();
+    });
   </script>
 
 </body>
