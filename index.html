@@ -15,14 +15,49 @@
     }
 
     /* Restored quote/word section */
-    #daily-section {
-      max-width:600px; margin:0 auto 30px; background:white;
-      border-radius:8px; padding:20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align:center;
-    }
-    #daily-section h3 { color:#4a90e2; margin-bottom:8px; }
-    #daily-section p { font-size:16px; line-height:1.4; margin:0; }
+#daily-section {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  background: white;
+  border-radius: 8px;
+  padding: 10px 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+#daily-section > div {
+  flex: 1;
+  padding: 6px 10px;
+  background: #f9fbff;
+  border-radius: 6px;
+  border: 1px solid #e0e7ef;
+}
+
+#daily-section h3 {
+  color: #4a90e2;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+#daily-section p {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 13px;
+}
+
+
+@media (max-width: 600px) {
+  #daily-section {
+    flex-direction: column;
+  }
+}
+
+
 
     /* Tabs */
     .tab-buttons {
