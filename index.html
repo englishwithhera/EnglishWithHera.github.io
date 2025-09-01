@@ -221,8 +221,104 @@
     <button onclick="showTab('about')">About Me</button>
   </div>
 
-  <!-- Content Sections (same as before) -->
-  <!-- You can paste your existing #home, #spoken, #kids, and #about content here as-is -->
+  <!-- Home Tab -->
+  <div id="home" class="tab-content active">
+    <section class="hero">
+      <h2>SAT English Preparation</h2>
+      <p>Master Reading, Writing & Grammar for top scores</p>
+      <button onclick="document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });">Get Started</button>
+    </section>
+    <section class="modules">
+      <div class="module"><h3>Reading</h3><p>Practice reading passages with comprehension questions.</p></div>
+      <div class="module"><h3>Writing</h3><p>Analyze arguments, improve clarity and coherence.</p></div>
+      <div class="module"><h3>Grammar</h3><p>Brush up on rules for punctuation, syntax, and usage.</p></div>
+    </section>
+    <section id="signup" style="max-width:600px; margin:0 auto; padding:20px; background:#f8f9fa; border-radius:8px;">
+      <h2>🎓 Join Our SAT English Class</h2>
+      <form action="https://formspree.io/f/mzzagnqg" method="POST">
+        <label>Full Name:</label><input type="text" name="name" required>
+        <label>Email:</label><input type="email" name="email" required>
+        <label>Phone Number (with country code):</label><input type="tel" name="phone" required pattern="^\\+\\d{1,4}[\\d\\s\\-]{7,15}$" placeholder="+1 123 456 7890">
+        <label>Grade / SAT Target Score:</label><input type="text" name="grade">
+        <label>Message:</label><textarea name="message" rows="4"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Spoken English Tab -->
+  <div id="spoken" class="tab-content">
+    <h2>Spoken English</h2>
+    <p>Improve your speaking skills with our interactive spoken English modules.</p>
+    <section class="modules">
+      <div class="module"><h3>Pronunciation Practice</h3><p>Learn through audio exercises and tongue twisters.</p></div>
+      <div class="module"><h3>Conversation Skills</h3><p>Role-plays for everyday fluency.</p></div>
+      <div class="module"><h3>Public Speaking</h3><p>Speak clearly and confidently to any audience.</p></div>
+    </section>
+    <section style="max-width:600px; margin:40px auto 0; padding:20px; background:#f8f9fa; border-radius:8px;">
+      <h2>🎤 Join Our Spoken English Class</h2>
+      <form action="https://formspree.io/f/xqadlyvj" method="POST">
+        <label>Full Name:</label><input type="text" name="name" required>
+        <label>Email:</label><input type="email" name="email" required>
+        <label>Phone Number (with country code):</label><input type="tel" name="phone" required pattern="^\\+\\d{1,4}[\\d\\s\\-]{7,15}$" placeholder="+1 123 456 7890">
+        <label>Current Speaking Level:</label><input type="text" name="level" placeholder="Beginner, Intermediate, Advanced">
+        <label>Message:</label><textarea name="message" rows="4"></textarea>
+        <button type="submit">Enroll Now</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Kid's Zone Tab -->
+  <div id="kids" class="tab-content">
+    <h2>Kid's Zone</h2>
+    <p>Fun, foundational English learning for young minds!</p>
+    <section style="max-width:800px; margin:0 auto; padding:20px; background:#fff; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h3>What We Teach?</h3>
+      <ul style="line-height:1.6;">
+        <li><strong>Phonics &amp; Pronunciation:</strong> Songs &amp; games for reading foundations.</li>
+        <li><strong>Conversational Skills:</strong> Role‑play and speaking games for confidence.</li>
+        <li><strong>Vocabulary Building:</strong> Stories &amp; games make new words memorable.</li>
+        <li><strong>Grammar:</strong> Fun grammar through real‑life examples.</li>
+      </ul>
+    </section>
+    <section style="max-width:600px; margin:40px auto 0; padding:20px; background:#fefefe; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <h2>🎉 Enroll Your Child</h2>
+      <form action="https://formspree.io/f/mwpnqran" method="POST">
+        <label>Parent's Name:</label><input type="text" name="parent_name" required>
+        <label>Child's Name:</label><input type="text" name="child_name" required>
+        <label>Child's Age:</label><input type="number" name="child_age" required>
+        <label>Email Address:</label><input type="email" name="parent_email" required>
+        <label>Phone Number (with country code):</label><input type="tel" name="phone" required pattern="^\\+\\d{1,4}[\\d\\s\\-]{7,15}$" placeholder="+1 123 456 7890">
+        <label>Preferred Class Time / Message:</label><textarea name="message" rows="4"></textarea>
+        <button type="submit">Enroll</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- About Tab -->
+  <div id="about" class="tab-content">
+    <h2>About Me</h2>
+    <div class="about-wrapper">
+      <img src="picturepdeskto[.jpg" alt="Hera">
+      <div>
+<p>Hello! I'm <strong>Hera</strong>, a passionate and dedicated <strong>English language trainer</strong>.</p>
+
+<p>Unlock your English potential with a <strong>CELTA/CELTYL</strong> certified trainer.</p>
+
+<p>
+  For over 10 years, I've had the privilege of helping both children and adults master the English language. As a Cambridge CELTA and CELTYL certified trainer based in New York, I bring a level of expertise and dedication to every lesson that goes beyond the textbook.
+</p>
+
+<p>
+  My teaching philosophy is simple: effective language learning should be engaging, practical, and tailored to your goals. Whether you're a professional looking to communicate with greater confidence or a parent seeking a fun, supportive environment for your child to learn, I provide a clear, proven path to fluency.
+</p>
+
+<p>
+  I believe in transforming the way you learn English — moving you from memorization to genuine communication. Let's work together to achieve your language goals!
+</p>
+      </div>
+    </div>
+  </div>
 
   <!-- JS Logic -->
   <script>
