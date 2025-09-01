@@ -4,7 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>English Made Easy</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+  <!-- SEO -->
+  <meta name="description" content="Learn English with Hera: SAT Prep, Spoken English, and Kids English classes.">
+  <meta property="og:title" content="English Made Easy with Hera">
+  <meta property="og:description" content="Expert SAT, spoken, and kids English training with Hera, CELTA/CELTYL certified trainer.">
+  <meta property="og:image" content="preview.jpg">
+  <meta property="og:type" content="website">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -83,6 +99,11 @@
       justify-content: center;
       gap: 16px;
       margin-bottom: 30px;
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 10px;
+      z-index: 1000;
     }
 
     .tab-buttons button {
@@ -215,10 +236,10 @@
 
   <!-- Tab Buttons -->
   <div class="tab-buttons">
-    <button onclick="showTab('home')">SAT Preparation</button>
-    <button onclick="showTab('spoken')">Spoken English</button>
-    <button onclick="showTab('kids')">Kid's Zone</button>
-    <button onclick="showTab('about')">About Me</button>
+    <button onclick="showTab('home')" aria-label="Show SAT Preparation section">SAT Preparation</button>
+    <button onclick="showTab('spoken')" aria-label="Show Spoken English section">Spoken English</button>
+    <button onclick="showTab('kids')" aria-label="Show Kids Zone section">Kid's Zone</button>
+    <button onclick="showTab('about')" aria-label="Show About Me section">About Me</button>
   </div>
 
   <!-- Home Tab -->
@@ -236,11 +257,11 @@
     <section id="signup" style="max-width:600px; margin:0 auto; padding:20px; background:#f8f9fa; border-radius:8px;">
       <h2>🎓 Join Our SAT English Class</h2>
       <form action="https://formspree.io/f/mzzagnqg" method="POST">
-        <label>Full Name:</label><input type="text" name="name" required>
-        <label>Email:</label><input type="email" name="email" required>
-        <label>Phone Number (with country code):</label><input type="tel" name="phone" required pattern="^\\+\\d{1,4}[\\d\\s\\-]{7,15}$" placeholder="+1 123 456 7890">
-        <label>Grade / SAT Target Score:</label><input type="text" name="grade">
-        <label>Message:</label><textarea name="message" rows="4"></textarea>
+        <label for="sat-name">Full Name:</label><input type="text" id="sat-name" name="name" required>
+        <label for="sat-email">Email:</label><input type="email" id="sat-email" name="email" required>
+        <label for="sat-phone">Phone Number (with country code):</label><input type="tel" id="sat-phone" name="phone" required pattern="^\\+\\d{1,4}[\\d\\s\\-]{7,15}$" placeholder="+1 123 456 7890">
+        <label for="sat-grade">Grade / SAT Target Score:</label><input type="text" id="sat-grade" name="grade">
+        <label for="sat-message">Message:</label><textarea id="sat-message" name="message" rows="4"></textarea>
         <button type="submit">Submit</button>
       </form>
     </section>
@@ -258,11 +279,11 @@
     <section style="max-width:600px; margin:40px auto 0; padding:20px; background:#f8f9fa; border-radius:8px;">
       <h2>🎤 Join Our Spoken English Class</h2>
       <form action="https://formspree.io/f/xqadlyvj" method="POST">
-        <label>Full Name:</label><input type="text" name="name" required>
-        <label>Email:</label><input type="email" name="email" required>
-        <label>Phone Number (with country code):</label><input type="tel" name="phone" required pattern="^\\+\\d{1,4}[\\d\\s\\-]{7,15}$" placeholder="+1 123 456 7890">
-        <label>Current Speaking Level:</label><input type="text" name="level" placeholder="Beginner, Intermediate, Advanced">
-        <label>Message:</label><textarea name="message" rows="4"></textarea>
+        <label for="spoken-name">Full Name:</label><input type="text" id="spoken-name" name="name" required>
+        <label for="spoken-email">Email:</label><input type="email" id="spoken-email" name="email" required>
+        <label for="spoken-phone">Phone Number (with country code):</label><input type="tel" id="spoken-phone" name="phone" required pattern="^\\+\\d{1,4}[\\d\\s\\-]{7,15}$" placeholder="+1 123 456 7890">
+        <label for="spoken-level">Current Speaking Level:</label><input type="text" id="spoken-level" name="level" placeholder="Beginner, Intermediate, Advanced">
+        <label for="spoken-message">Message:</label><textarea id="spoken-message" name="message" rows="4"></textarea>
         <button type="submit">Enroll Now</button>
       </form>
     </section>
@@ -276,20 +297,20 @@
       <h3>What We Teach?</h3>
       <ul style="line-height:1.6;">
         <li><strong>Phonics &amp; Pronunciation:</strong> Songs &amp; games for reading foundations.</li>
-        <li><strong>Conversational Skills:</strong> Role‑play and speaking games for confidence.</li>
+        <li><strong>Conversational Skills:</strong> Role-play and speaking games for confidence.</li>
         <li><strong>Vocabulary Building:</strong> Stories &amp; games make new words memorable.</li>
-        <li><strong>Grammar:</strong> Fun grammar through real‑life examples.</li>
+        <li><strong>Grammar:</strong> Fun grammar through real-life examples.</li>
       </ul>
     </section>
     <section style="max-width:600px; margin:40px auto 0; padding:20px; background:#fefefe; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
       <h2>🎉 Enroll Your Child</h2>
       <form action="https://formspree.io/f/mwpnqran" method="POST">
-        <label>Parent's Name:</label><input type="text" name="parent_name" required>
-        <label>Child's Name:</label><input type="text" name="child_name" required>
-        <label>Child's Age:</label><input type="number" name="child_age" required>
-        <label>Email Address:</label><input type="email" name="parent_email" required>
-        <label>Phone Number (with country code):</label><input type="tel" name="phone" required pattern="^\\+\\d{1,4}[\\d\\s\\-]{7,15}$" placeholder="+1 123 456 7890">
-        <label>Preferred Class Time / Message:</label><textarea name="message" rows="4"></textarea>
+        <label for="parent-name">Parent's Name:</label><input type="text" id="parent-name" name="parent_name" required>
+        <label for="child-name">Child's Name:</label><input type="text" id="child-name" name="child_name" required>
+        <label for="child-age">Child's Age:</label><input type="number" id="child-age" name="child_age" required>
+        <label for="parent-email">Email Address:</label><input type="email" id="parent-email" name="parent_email" required>
+        <label for="kids-phone">Phone Number (with country code):</label><input type="tel" id="kids-phone" name="phone" required pattern="^\\+\\d{1,4}[\\d\\s\\-]{7,15}$" placeholder="+1 123 456 7890">
+        <label for="kids-message">Preferred Class Time / Message:</label><textarea id="kids-message" name="message" rows="4"></textarea>
         <button type="submit">Enroll</button>
       </form>
     </section>
@@ -299,23 +320,19 @@
   <div id="about" class="tab-content">
     <h2>About Me</h2>
     <div class="about-wrapper">
-      <img src="picturepdeskto[.jpg" alt="Hera">
+      <img src="picturedesktop.jpg" alt="Portrait of Hera, English language trainer">
       <div>
-<p>Hello! I'm <strong>Hera</strong>, a passionate and dedicated <strong>English language trainer</strong>.</p>
-
-<p>Unlock your English potential with a <strong>CELTA/CELTYL</strong> certified trainer.</p>
-
-<p>
-  For over 10 years, I've had the privilege of helping both children and adults master the English language. As a Cambridge CELTA and CELTYL certified trainer based in New York, I bring a level of expertise and dedication to every lesson that goes beyond the textbook.
-</p>
-
-<p>
-  My teaching philosophy is simple: effective language learning should be engaging, practical, and tailored to your goals. Whether you're a professional looking to communicate with greater confidence or a parent seeking a fun, supportive environment for your child to learn, I provide a clear, proven path to fluency.
-</p>
-
-<p>
-  I believe in transforming the way you learn English — moving you from memorization to genuine communication. Let's work together to achieve your language goals!
-</p>
+        <p>Hello! I'm <strong>Hera</strong>, a passionate and dedicated <strong>English language trainer</strong>.</p>
+        <p>Unlock your English potential with a <strong>CELTA/CELTYL</strong> certified trainer.</p>
+        <p>
+          For over 10 years, I've had the privilege of helping both children and adults master the English language. As a Cambridge CELTA and CELTYL certified trainer based in New York, I bring a level of expertise and dedication to every lesson that goes beyond the textbook.
+        </p>
+        <p>
+          My teaching philosophy is simple: effective language learning should be engaging, practical, and tailored to your goals. Whether you're a professional looking to communicate with greater confidence or a parent seeking a fun, supportive environment for your child to learn, I provide a clear, proven path to fluency.
+        </p>
+        <p>
+          I believe in transforming the way you learn English — moving you from memorization to genuine communication. Let's work together to achieve your language goals!
+        </p>
       </div>
     </div>
   </div>
