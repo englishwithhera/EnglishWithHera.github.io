@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SAT English Made Easy</title>
 
-  <!-- Modern Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -17,18 +16,42 @@
       color: #333;
     }
 
-    h1, h2 {
-      color: #2c3e50;
-    }
-
-    /* Banner */
     h1 {
       background: linear-gradient(to right, #4a90e2, #6fb1fc);
       color: white;
       padding: 20px;
       border-radius: 8px;
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
+    }
+
+    /* Info Section */
+    #info-bar {
+      max-width: 900px;
+      margin: 0 auto 30px auto;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    #word-of-hour, #quote-of-day {
+      background-color: #f5faff;
+      padding: 15px;
+      border-left: 6px solid #4a90e2;
+      border-radius: 8px;
+    }
+
+    #quote-of-day {
+      background-color: #fff7e6;
+      border-left-color: #f4a300;
+    }
+
+    #info-bar h3 {
+      margin: 0 0 5px;
     }
 
     .tab-buttons {
@@ -89,7 +112,6 @@
       background-color: #3a78c2;
     }
 
-    /* Hero + Modules styling */
     .hero {
       background: #4A90E2;
       color: white;
@@ -117,7 +139,6 @@
       text-align: center;
     }
 
-    /* About Section */
     #about img {
       width: 200px;
       border-radius: 10px;
@@ -146,6 +167,18 @@
 
   <h1>SAT English Made Easy</h1>
 
+  <!-- 🔹 Word + Quote Info -->
+  <div id="info-bar">
+    <div id="word-of-hour">
+      <h3>📘 Word of the Hour</h3>
+      <p id="wordText">Loading...</p>
+    </div>
+    <div id="quote-of-day">
+      <h3>🌟 Quote of the Day</h3>
+      <p id="quoteText">Loading...</p>
+    </div>
+  </div>
+
   <!-- 🔹 Tab Buttons -->
   <div class="tab-buttons">
     <button onclick="showTab('home')">Home</button>
@@ -173,17 +206,12 @@
       <form action="https://formspree.io/f/mzzagnqg" method="POST">
         <label>Full Name:</label>
         <input type="text" name="name" required />
-
         <label>Email:</label>
         <input type="email" name="email" required />
-
         <label>Grade / SAT Target Score:</label>
         <input type="text" name="grade" />
-
         <label>Message:</label>
         <textarea name="message" rows="4"></textarea>
-
-        <!-- Optional CAPTCHA already enabled via Formspree dashboard -->
         <button type="submit">Submit</button>
       </form>
     </section>
@@ -192,15 +220,10 @@
   <!-- 🔹 Tab Content: About -->
   <div id="about" class="tab-content">
     <h2>About Me</h2>
-
     <div class="about-wrapper">
-      <!-- 👤 Image -->
       <img src="picturepdeskto[.jpg" alt="Hera" />
-
-      <!-- 📝 Text -->
       <div>
-        <p>Hello! I'm <strong>Hera</strong>, a passionate and dedicated <strong>SAT English tutor</strong> with good amount of experience</strong> helping students excel in the Reading, Writing, and Language sections of the SAT.</p>
-
+        <p>Hello! I'm <strong>Hera</strong>, a passionate and dedicated <strong>SAT English tutor</strong> with good amount of experience helping students excel in the Reading, Writing, and Language sections of the SAT.</p>
         <p>My teaching approach is student-focused and results-driven. I specialize in:</p>
         <ul>
           <li>Decoding SAT question patterns</li>
@@ -209,21 +232,51 @@
           <li>Building confidence through strategic practice</li>
           <li>Teaching time-saving strategies for higher efficiency</li>
         </ul>
-
         <p>Over the past decade, I've worked with students—many of whom went on to achieve <strong>top percentile scores</strong> and earn admission to prestigious universities in the U.S. and beyond.</p>
-
         <p>If you're ready to unlock your full potential and take your SAT English skills to the next level, I’d love to help you on your journey. <strong>Let’s get started!</strong></p>
       </div>
     </div>
   </div>
 
-  <!-- 🔹 JavaScript: Tab Switching -->
+  <!-- 🔹 JavaScript -->
   <script>
     function showTab(tabId) {
       const tabs = document.querySelectorAll('.tab-content');
       tabs.forEach(tab => tab.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
     }
+
+    const words = [
+      "elucidate – to make something clear",
+      "reticent – not revealing one's thoughts easily",
+      "sagacious – wise or shrewd",
+      "ubiquitous – present everywhere",
+      "deleterious – harmful or damaging",
+      "circumspect – careful, cautious",
+      "cogent – clear, logical, and convincing",
+      "magnanimous – very generous or forgiving"
+    ];
+
+    function getWordOfHour() {
+      const hour = new Date().getHours();
+      return words[hour % words.length];
+    }
+
+    async function fetchQuoteOfDay() {
+      try {
+        const response = await fetch("https://zenquotes.io/api/today");
+        const data = await response.json();
+        const quote = data[0];
+        return `"${quote.q}" — ${quote.a}`;
+      } catch (e) {
+        return "Keep learning and never stop growing.";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      document.getElementById("wordText").textContent = getWordOfHour();
+      document.getElementById("quoteText").textContent = await fetchQuoteOfDay();
+    });
   </script>
 
 </body>
