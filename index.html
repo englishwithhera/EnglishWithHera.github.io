@@ -262,21 +262,22 @@
       return words[hour % words.length];
     }
 
-    async function fetchQuoteOfDay() {
-      try {
-        const response = await fetch("https://zenquotes.io/api/today");
-        const data = await response.json();
-        const quote = data[0];
-        return `"${quote.q}" — ${quote.a}`;
-      } catch (e) {
-        return "Keep learning and never stop growing.";
-      }
+  async function fetchQuoteOfDay() {
+    try {
+      const response = await fetch("https://zenquotes.io/api/today");
+      const json = await response.json();
+      const data = json[0]; // Access the first element of the array
+      return `"${data.q}" — ${data.a}`;
+    } catch (e) {
+      console.error("Error fetching quote:", e);
+      return "Keep learning and never stop growing.";
     }
+  }
 
-    document.addEventListener("DOMContentLoaded", async () => {
-      document.getElementById("wordText").textContent = getWordOfHour();
-      document.getElementById("quoteText").textContent = await fetchQuoteOfDay();
-    });
+  document.addEventListener("DOMContentLoaded", async () => {
+    document.getElementById("wordText").textContent = getWordOfHour();
+    document.getElementById("quoteText").textContent = await fetchQuoteOfDay();
+  });
   </script>
 
 </body>
